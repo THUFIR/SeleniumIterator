@@ -29,19 +29,20 @@ public class SeleniumWebPage {
     }
 
     private void processLink(Link l) {
-        log.info(l.toString());
+        log.fine(l.toString());
         WebDriver driver = new FirefoxDriver();  //don't display
         driver.get(l.getLink());
         driver.manage().timeouts().implicitlyWait(9, TimeUnit.SECONDS);
         String s = driver.getPageSource();
-        createPage(s);
+        createPage(l, s);
         driver.close();
     }
 
-    private void createPage(String s) {
-        log.info(s);
+    private void createPage(Link l, String s) {
         Page p = new Page();
         p.setCreated(new Date());
+        p.setLinkId(l.getId());
+        p.setPage(s);
         pageFacade.create(p);
     }
 

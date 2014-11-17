@@ -1,9 +1,12 @@
 package net.bounceme.dur.selenium.jpa;
 
 import java.util.List;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 
 public abstract class AbstractFacade<T> {
+
+    private final static Logger log = Logger.getLogger(AbstractFacade.class.getName());
     private Class<T> entityClass;
 
     public AbstractFacade(Class<T> entityClass) {
@@ -14,6 +17,7 @@ public abstract class AbstractFacade<T> {
 
     public void create(T entity) {
         getEntityManager().persist(entity);
+        log.info("..persisted!");
     }
 
     public void edit(T entity) {

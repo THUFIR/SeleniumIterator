@@ -13,7 +13,7 @@ public class Main {
     }
 
     private void getLinks() {
-        log.info("getting links..");
+        log.fine("getting links..");
         webPage.processLinks();
     }
 }

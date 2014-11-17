@@ -6,6 +6,7 @@
 package net.bounceme.dur.selenium.jpa;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,8 @@ import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -39,8 +42,9 @@ public class Page implements Serializable {
     @Column(nullable = false)
     private Integer id;
     @Basic(optional = false)
-    @Column(nullable = false, length = 45)
-    private String created;
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created;
     @Basic(optional = false)
     @Lob
     @Column(nullable = false, length = 65535)
@@ -59,7 +63,7 @@ public class Page implements Serializable {
         this.id = id;
     }
 
-    public Page(Integer id, String created, String page, int linkId, int status) {
+    public Page(Integer id, Date created, String page, int linkId, int status) {
         this.id = id;
         this.created = created;
         this.page = page;
@@ -75,11 +79,11 @@ public class Page implements Serializable {
         this.id = id;
     }
 
-    public String getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(String created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
 

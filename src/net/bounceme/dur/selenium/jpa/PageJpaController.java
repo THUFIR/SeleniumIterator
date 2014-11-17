@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.bounceme.dur.selenium.jpa;
 
 import java.io.Serializable;
@@ -15,10 +10,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import net.bounceme.dur.selenium.jpa.exceptions.NonexistentEntityException;
 
-/**
- *
- * @author thufir
- */
 public class PageJpaController implements Serializable {
 
     public PageJpaController(EntityManagerFactory emf) {

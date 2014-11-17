@@ -11,13 +11,13 @@ import net.bounceme.dur.selenium.jpa.PageFacade;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class SeleniumWebPage {
+public class SeleniumWebPageIterator {
 
-    private final static Logger log = Logger.getLogger(SeleniumWebPage.class.getName());
+    private final static Logger log = Logger.getLogger(SeleniumWebPageIterator.class.getName());
     private final PageFacade pageFacade = new PageFacade();
     private final LinkFacade linkFacade = new LinkFacade();
 
-    public SeleniumWebPage() {
+    public SeleniumWebPageIterator() {
 
     }
 
@@ -43,7 +43,7 @@ public class SeleniumWebPage {
         p.setCreated(new Date());
         p.setLinkId(l.getId());
         p.setPage(s);
-        pageFacade.create(p);
+        pageFacade.create(p);  //page has no id..
     }
 
 }
